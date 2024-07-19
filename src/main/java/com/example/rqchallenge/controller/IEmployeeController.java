@@ -1,11 +1,12 @@
-package com.example.rqchallenge.employees;
+package com.example.rqchallenge.controller;
 
+import com.example.rqchallenge.model.CreateEmployeeRequest;
+import com.example.rqchallenge.model.Employee;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public interface IEmployeeController {
@@ -26,7 +27,7 @@ public interface IEmployeeController {
     ResponseEntity<List<String>> getTopTenHighestEarningEmployeeNames();
 
     @PostMapping()
-    ResponseEntity<Employee> createEmployee(@RequestBody Map<String, Object> employeeInput);
+    ResponseEntity<String> createEmployee(@RequestBody CreateEmployeeRequest employeeInput);
 
     @DeleteMapping("/{id}")
     ResponseEntity<String> deleteEmployeeById(@PathVariable String id);
